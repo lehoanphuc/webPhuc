@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{585E6D52-34E0-41CE-9A17-E58399870C02}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>demoWeb</RootNamespace>
+    <AssemblyName>demoWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44359</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MoMo\MoMoSecurity.cs" />
+    <Compile Include="Controllers\MoMo\PaymentRequest.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\SendOTP\SendOTPController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\MyData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Details_Style.css" />
+    <Content Include="Content\dropdownBtn.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\about_bg.png" />
+    <Content Include="Content\images\canon-eos-r5-mirror.jpg" />
+    <Content Include="Content\images\canon\1501674661-1332311.jpg" />
+    <Content Include="Content\images\canon\1531477145-img-1027107.jpg" />
+    <Content Include="Content\images\canon\1551359946-img-1147787.jpg" />
+    <Content Include="Content\images\canon\1556802041-img-1178033.jpg" />
+    <Content Include="Content\images\canon\200d.jpg" />
+    <Content Include="Content\images\canon\3000d.jpg" />
+    <Content Include="Content\images\canon\57-192.jpg" />
+    <Content Include="Content\images\canon\5dsr-copy.jpg" />
+    <Content Include="Content\images\canon\7d2.jpg" />
+    <Content Include="Content\images\canon\800d.jpg" />
+    <Content Include="Content\images\canon\85-mm-f1-4-ze-for-canon-1.jpg" />
+    <Content Include="Content\images\canon\canon-70-210-600x600.jpg" />
+    <Content Include="Content\images\canon\canon-77d.jpg" />
+    <Content Include="Content\images\canon\canon-eos-m10-mirrorless.jpg" />
+    <Content Include="Content\images\canon\canon-eos-m50-mark-ii-2.jpg" />
+    <Content Include="Content\images\canon\canon-eos-m50-mark-ii.jpg" />
+    <Content Include="Content\images\canon\canon-eos-m50.jpg" />
+    <Content Include="Content\images\canon\canon-extender-ef-14x-ii.jpg" />
+    <Content Include="Content\images\canon\canon-rf-24-105mm-f3-5-5-6-is-stm-lens-3.png" />
+    <Content Include="Content\images\canon\canon-rf-50mm-f18-stm-2-500x500.jpg" />
+    <Content Include="Content\images\canon\canon-rf-85mm-f2-macro-is-stm-lens-4-500x500.jpg" />
+    <Content Include="Content\images\canon\canon_1DX_Mark2.jpg" />
+    <Content Include="Content\images\canon\canon_2000D_kit 18-55mm.jpg" />
+    <Content Include="Content\images\canon\canon_500D.jpg" />
+    <Content Include="Content\images\canon\canon_550D.jpg" />
+    <Content Include="Content\images\canon\canon_5D.jpg" />
+    <Content Include="Content\images\canon\canon_5D_mark4.jpg" />
+    <Content Include="Content\images\canon\canon_600D.jpg" />
+    <Content Include="Content\images\canon\canon_60D.jpg" />
+    <Content Include="Content\images\canon\canon_750D.jpg" />
+    <Content Include="Content\images\canon\canon_77D_kit 18-135mm.jpg" />
+    <Content Include="Content\images\canon\canon_77D_kit 18-55mm.jpg" />
+    <Content Include="Content\images\canon\canon_8000D.jpg" />
+    <Content Include="Content\images\canon\canon_80D.jpg" />
+    <Content Include="Content\images\canon\canon_850D.jpg" />
+    <Content Include="Content\images\canon\canon_90D.jpg" />
+    <Content Include="Content\images\canon\canon_EOS.jpg" />
+    <Content Include="Content\images\canon\canon_G5X.jpg" />
+    <Content Include="Content\images\canon\canon_G7X.jpg" />
+    <Content Include="Content\images\canon\canon_G7X_2.jpg" />
+    <Content Include="Content\images\canon\canon_ixus.jpg" />
+    <Content Include="Content\images\canon\canon_ixus980c.jpg" />
+    <Content Include="Content\images\canon\canon_R.jpg" />
+    <Content Include="Content\images\canon\canon_R3.jpg" />
+    <Content Include="Content\images\canon\canon_S90.jpg" />
+    <Content Include="Content\images\canon\canon_SX.jpg" />
+    <Content Include="Content\images\canon\canon_SX_2.jpg" />
+    <Content Include="Content\images\canon\canon__R.jpg" />
+    <Content Include="Content\images\canon\eos-m3-ef-m18-55stm-fsl-3-retina.jpg" />
+    <Content Include="Content\images\canon\eosra-copy.jpg" />
+    <Content Include="Content\images\canon\eosrg-copy.jpg" />
+    <Content Include="Content\images\canon\highrescanonef70200mm.jpg" />
+    <Content Include="Content\images\canon\img5b9350b423c7b-l.jpg" />
+    <Content Include="Content\images\canon\m6a.jpg" />
+    <Content Include="Content\images\canon\ngam-auto-focus-viltrox.jpg" />
+    <Content Include="Content\images\canon\ong-kinh-canon-ef.jpg" />
+    <Content Include="Content\images\canon\ong-kinh-canon-rf-35mm-f18-macro-is-stm.jpg" />
+    <Content Include="Content\images\canon\s5.jpg" />
+    <Content Include="Content\images\canon\samyang-10mm-2013-side-1398651748.jpg" />
+    <Content Include="Content\images\canon\samyang-premium-xp-85mm-f1-2-for-canon.jpg" />
+    <Content Include="Content\images\canon\sigma-20mm-f14-dg-hsm-art-for-nikon.jpg" />
+    <Content Include="Content\images\canon\sigma-24-70mm.jpg" />
+    <Content Include="Content\images\canon\tamron-24-70mm.jpg" />
+    <Content Include="Content\images\canon\tamron-sp-70-200mm-f2-8x1q-m1-8-di-vc-usd-g2-for-canon-ef-zshop2.jpg" />
+    <Content Include="Content\images\canon_banner_bg.jpg" />
+    <Content Include="Content\images\canon_compact1.jpg" />
+    <Content Include="Content\images\canon_eos90d.jpg" />
+    <Content Include="Content\images\canon_nonbg.png" />
+    <Content Include="Content\images\client1.jpg" />
+    <Content Include="Content\images\client2.jpg" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\hero-bg.jpg" />
+    <Content Include="Content\images\lens_canon1.jpg" />
+    <Content Include="Content\images\lens_sigma_300-800.jpg" />
+    <Content Include="Content\images\len_sigma1.jpg" />
+    <Content Include="Content\images\nikon-compact1.jpg" />
+    <Content Include="Content\images\nikon-d3400.jpg" />
+    <Content Include="Content\images\nikon-d6.jpg" />
+    <Content Include="Content\images\nikon\1472723464000-1277357.jpg" />
+    <Content Include="Content\images\nikon\16-85-jpg.jpg" />
+    <Content Include="Content\images\nikon\17-55mm.jpg" />
+    <Content Include="Content\images\nikon\18-140.jpg" />
+    <Content Include="Content\images\nikon\208757-1959133-01.jpg" />
+    <Content Include="Content\images\nikon\24-35mm-copy-jpg.jpg" />
+    <Content Include="Content\images\nikon\25472-d3100-right2.png" />
+    <Content Include="Content\images\nikon\297a2176a15f73b29330e564369ce752.jpg" />
+    <Content Include="Content\images\nikon\35mma-zps7ad703c2-1-6e1df201-b077-4ea3-a70f-13ab7bade48a.jpg" />
+    <Content Include="Content\images\nikon\50mm-jpg.jpg" />
+    <Content Include="Content\images\nikon\6829.jpg" />
+    <Content Include="Content\images\nikon\70-300.jpg" />
+    <Content Include="Content\images\nikon\70-300mm.jpg" />
+    <Content Include="Content\images\nikon\713nzvakfhl-ac-sl1500.jpg" />
+    <Content Include="Content\images\nikon\7def9ca05ca668266c64f839949d14a4.jpg" />
+    <Content Include="Content\images\nikon\81-8qiwqpal-sl1500.jpg" />
+    <Content Include="Content\images\nikon\91shhphsrsl-ac-sl1500.jpg" />
+    <Content Include="Content\images\nikon\af-dx-fisheye-nikkor-105mmf28-g-ed1.jpg" />
+    <Content Include="Content\images\nikon\afs-vr-micronikkor-105mm-f28g-ifed1.jpg" />
+    <Content Include="Content\images\nikon\ai-af-zoom-nikkor-80-200mm-f-2-8d-ed-1992-1997-01.jpg" />
+    <Content Include="Content\images\nikon\d300a.jpg" />
+    <Content Include="Content\images\nikon\d300sb.jpg" />
+    <Content Include="Content\images\nikon\d4s4.jpg" />
+    <Content Include="Content\images\nikon\d5100d.jpg" />
+    <Content Include="Content\images\nikon\d5300.jpg" />
+    <Content Include="Content\images\nikon\d5300copy-zpsc5443788.jpg" />
+    <Content Include="Content\images\nikon\d600.jpg" />
+    <Content Include="Content\images\nikon\d750.jpg" />
+    <Content Include="Content\images\nikon\d7500.jpg" />
+    <Content Include="Content\images\nikon\den-flash-godox-v860ii-kem-pin-600x600.jpg" />
+    <Content Include="Content\images\nikon\dsc-5109-460.jpg" />
+    <Content Include="Content\images\nikon\e5.jpg" />
+    <Content Include="Content\images\nikon\fa-copy.jpg" />
+    <Content Include="Content\images\nikon\lensbaby.jpg" />
+    <Content Include="Content\images\nikon\nikon-60mm-2-8-d-12.jpg" />
+    <Content Include="Content\images\nikon\nikon-85d.jpg" />
+    <Content Include="Content\images\nikon\nikon-coolpix-p310-black.jpg" />
+    <Content Include="Content\images\nikon\nikon-coolpix-p900.jpg" />
+    <Content Include="Content\images\nikon\nikon-d5600.jpg" />
+    <Content Include="Content\images\nikon\nikon-d610.jpg" />
+    <Content Include="Content\images\nikon\nikon-d800e.jpg" />
+    <Content Include="Content\images\nikon\nikon-sb910af2.jpg" />
+    <Content Include="Content\images\nikon\nikon28mm28.jpg" />
+    <Content Include="Content\images\nikon\nikon35nano-copy.jpg" />
+    <Content Include="Content\images\nikon\sb600.jpg" />
+    <Content Include="Content\images\nikon\sigma-50-f1-4.jpg" />
+    <Content Include="Content\images\nikon\yongnuo-yn-35mm-5.jpg" />
+    <Content Include="Content\images\nikon\z-d3300-beauty.jpg" />
+    <Content Include="Content\images\nikon\z-nikon-d3400.jpg" />
+    <Content Include="Content\images\o1.jpg" />
+    <Content Include="Content\images\o2.jpg" />
+    <Content Include="Content\images\sony-compact1.jpg" />
+    <Content Include="Content\images\sony-mirror_a7s.jpg" />
+    <Content Include="Content\images\sony\100mm-cya.jpg" />
+    <Content Include="Content\images\sony\10mm-f56-e-mount.jpg" />
+    <Content Include="Content\images\sony\1372305033000-984405.jpg" />
+    <Content Include="Content\images\sony\1410791748000-1082052.jpg" />
+    <Content Include="Content\images\sony\1425440738000-1126137.jpg" />
+    <Content Include="Content\images\sony\1441889553000-1185204-455v-h5.jpg" />
+    <Content Include="Content\images\sony\1441961130000-1186034.jpg" />
+    <Content Include="Content\images\sony\1492603626-1333230.jpg" />
+    <Content Include="Content\images\sony\1505225826000-img-868053.jpg" />
+    <Content Include="Content\images\sony\1521828318000-1399789.jpg" />
+    <Content Include="Content\images\sony\1547577344000-1453768-lq7x-xz.jpg" />
+    <Content Include="Content\images\sony\1553568317000-1469682-e9bs-vf-r2fj-1b.jpg" />
+    <Content Include="Content\images\sony\1559909022-img-11977512.jpg" />
+    <Content Include="Content\images\sony\1563273968-1494679-pmj9-uv2.jpg" />
+    <Content Include="Content\images\sony\1579004482-1540293-6ea8f195-9fa2-4fa7-9200-5d5cb109d899.jpg" />
+    <Content Include="Content\images\sony\1579005196-img-1302994.jpg" />
+    <Content Include="Content\images\sony\1590489079-img-1365294-7r2c-yc.jpg" />
+    <Content Include="Content\images\sony\1966222.jpg" />
+    <Content Include="Content\images\sony\2800-carl-zeiss-planar-t-85-mm-f1-4-ze-for-canon-1.jpg" />
+    <Content Include="Content\images\sony\35-70a.jpg" />
+    <Content Include="Content\images\sony\4c1748ba8b2b9b87a7c31010d060fe08.jpg" />
+    <Content Include="Content\images\sony\71vir9hegql.jpg" />
+    <Content Include="Content\images\sony\8461-tamron-35mm-f2-8-di-iii-osd-for-sony-e-1.jpg" />
+    <Content Include="Content\images\sony\9302-tamron-70-180mm-1.jpg" />
+    <Content Include="Content\images\sony\a6000.jpg" />
+    <Content Include="Content\images\sony\a6300a.jpg" />
+    <Content Include="Content\images\sony\a6300e.jpg" />
+    <Content Include="Content\images\sony\a7-zpszxvfh2lu.jpg" />
+    <Content Include="Content\images\sony\a7iii.jpg" />
+    <Content Include="Content\images\sony\a7r-copy.jpg" />
+    <Content Include="Content\images\sony\a7r3.jpg" />
+    <Content Include="Content\images\sony\a7rii-zpsawqv1xxe-9a7fc9f2-b0d1-4bb4-9c8c-b22ed4ad7ee7.jpg" />
+    <Content Include="Content\images\sony\artboard-2-100-14.jpg" />
+    <Content Include="Content\images\sony\contax-9028-0118-011.jpg" />
+    <Content Include="Content\images\sony\e93f4ada4b194a7064d3de8b8a274afc.jpg" />
+    <Content Include="Content\images\sony\may-anh-sony-alpha-a6600-3-1.jpg" />
+    <Content Include="Content\images\sony\ong-kinh-laowa-10-18mm.jpg" />
+    <Content Include="Content\images\sony\ong-kinh-laowa-9mm-f28.jpg" />
+    <Content Include="Content\images\sony\ong-kinh-sony-fe-28-60mm-f4-5-6.jpg" />
+    <Content Include="Content\images\sony\rx100mk4.jpg" />
+    <Content Include="Content\images\sony\rx100vib-copy.jpg" />
+    <Content Include="Content\images\sony\sigma-18-50-cho-sony-jpeg.jpg" />
+    <Content Include="Content\images\sony\sigma-65mm-f2-dgdn-c-1-500x500.jpg" />
+    <Content Include="Content\images\sony\sigma85art-copy-35101e3e-9ca1-4827-8125-59ef00b7f1da.jpg" />
+    <Content Include="Content\images\sony\sony-a6500-mirrorless.jpg" />
+    <Content Include="Content\images\sony\sony-alpha-a7c.jpg" />
+    <Content Include="Content\images\sony\sony-alpha-a7m4.jpg" />
+    <Content Include="Content\images\sony\sony-alpha-a9-mark-2.jpg" />
+    <Content Include="Content\images\sony\sony-dscrx1-dsc-rx1-full-frame-point-891105.jpg" />
+    <Content Include="Content\images\sony\sony-fe-16-35mm-f-2-uv1u-hn-8-gm-001.jpg" />
+    <Content Include="Content\images\sony\sony-fe-20mm-f18-g.jpg" />
+    <Content Include="Content\images\sony\sony-rx10m3-2.jpg" />
+    <Content Include="Content\images\sony\sony-sel-30mm-macro-f35-sel30m35.jpg" />
+    <Content Include="Content\images\sony\sony-sel-35mm-f18-sel35f18-den-1.jpg" />
+    <Content Include="Content\images\sony\sony-zeiss-24-70-f4001.jpg" />
+    <Content Include="Content\images\sony\tamron-17-28mm-f2-8.jpg" />
+    <Content Include="Content\images\sony\y7kfnu-simg-de2fe0-500x500-maxb-master2.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\StylePageList.css" />
+    <Content Include="Content\styleSearch.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\styleLogin.css" />
+    <Content Include="Content\styleSlider.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\style.css.map" />
+    <Content Include="Content\style.scss" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\ListSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\CreateNV.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\ListNV.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\EditNV.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\DeleteNV.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\DetailNV.cshtml" />
+    <Content Include="Models\MyData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MyData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\images\sony\sigma-28-70mm-f28-dg-dn-c-2-1000x1000.webp" />
+    <None Include="Models\MyData.dbml.layout">
+      <DependentUpon>MyData.dbml</DependentUpon>
+    </None>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\Slider.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Home\TinhThanh.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\GioHang\Giohang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\SanPham\Nikon.cshtml" />
+    <Content Include="Views\SanPham\Canon.cshtml" />
+    <Content Include="Views\SanPham\Sony.cshtml" />
+    <Content Include="Views\SanPham\Lens.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\Shared\New.cshtml" />
+    <Content Include="Views\GioHang\returnUrl.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\XacNhanOTP.cshtml" />
+    <Content Include="Views\NguoiDung\InFo.cshtml" />
+    <Content Include="Views\NguoiDung\EditNguoiDung.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Views\Register\" />
+    <Folder Include="Views\SendOTP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58771</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44359/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

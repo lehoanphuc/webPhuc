@@ -1,0 +1,87 @@
+﻿@model demoWeb.Models.NGUOIDUNG
+
+@{
+    ViewBag.Title = "InFo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-left: 37%; margin-top: 30px;">Thông tin khách hàng</h2>
+<hr />
+<div style="margin-left: 40%;margin-top:30px;">
+
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            Họ và tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOVATEN)
+        </dd>
+
+
+        <dt>
+            Giới Tính:
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.GIOITINH)*@
+            @if (Model.GIOITINH == 0)
+            {
+                <p>Nữ</p>
+            }
+            else
+            {
+                <p>Nam</p>
+            }
+        </dd>
+
+        <dt>
+            Năm Sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAMSINH)
+        </dd>
+
+        <dt>
+            Số Điện Thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GMAIL)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+
+        <dt>
+            Ngày đăng ký
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDANGKY)
+        </dd>
+
+
+    </dl>
+</div>
+<p style="margin-left: 37%;">
+    @Html.ActionLink("Chỉnh sửa thông tin", "EditNguoiDung", new { id = Model.USERNAME }) |
+    @Html.ActionLink("Quay lại", "Info")
+</p>
